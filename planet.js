@@ -1,5 +1,5 @@
 let wrapper = document.querySelector(".wrapper");
-
+let speed = 3;
 function Planet() {
     this.namePlanet = ["redPlanet.png","whitePlanet.png"];
     this.planets = [];
@@ -35,9 +35,12 @@ function gameOver(planet){
         clearInterval(spawnInterval);
         clearInterval(donutsSpawnInterval);
         clearInterval(donutsMoveInterval);
+        clearInterval(speedInterval);
+        
         
         checkHighScore(counterOfDonuts);
 
+        speed = 3;
         divCounter.innerHTML = 0;
         createGameOverButton();
     }
@@ -92,11 +95,12 @@ function restart(){
     spawnInterval = setInterval(spawn, 600);
     donutsSpawnInterval = setInterval(spawnDonut, 1505);
     donutsMoveInterval =  setInterval(moveDonuts,10);
+    speedInterval = setInterval( () => speed++, 30000);
 }
 
 function movePlanet(){
     for(let value of planet.planets){
-        let top1 = parseInt(value.style.top, 10) + 3;
+        let top1 = parseInt(value.style.top, 10) + speed;
         
         gameOver(value);
         
@@ -111,7 +115,7 @@ function movePlanet(){
 
 let gameOverInterval = setInterval(movePlanet, 10);
 
-
+let speedInterval = setInterval( () => speed++, 30000);
 
 let spawn = planet.spawn.bind(planet);
 
