@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
    <link rel="stylesheet" href="game.css">
-    <script src="game.js" defer></script>
-<!--    <script src="rain.js" defer></script>-->
-    <script src = "score.js" defer></script>
-    <script src="planet.js" defer></script>
-    <script src="donut.js" defer></script>
+    <script src="libs/game.js" defer></script>
+    <script src="libs/main.js" defer></script>
+    <script data-main = "libs/main" src = "libs/require.js"></script>
+    <script src="libs/planet.js" defer></script>
+    <script src="libs/donut.js" defer></script>
+ 
     <meta charset="UTF-8">
     <title>Game</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +20,7 @@
        <ol id="highScores" >
            
        </ol>
+       <p id = "pause">arrows - move <br>p -  pause <br><br> escape - planets <br> collect - donuts </p>
    </div>
     <div class = 'wrapper'> 
        <div id = "counter"> 0 </div>
