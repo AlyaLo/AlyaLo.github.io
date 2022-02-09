@@ -34,7 +34,7 @@ function gameOver(planet){
         clearInterval(gameOverInterval);
         clearInterval(spawnInterval);
         clearInterval(donutsSpawnInterval);
-        clearInterval(donutsMoveInterval);
+        //clearInterval(donutsMoveInterval);
         clearInterval(speedInterval);
         
         
@@ -91,10 +91,13 @@ function restart(){
     wrapper.appendChild(rocket);
     counterOfDonuts = 0;
     
-    gameOverInterval = setInterval(movePlanet, 10);
+    gameOverInterval = setInterval(() =>{
+        movePlanet(); 
+        moveDonuts();
+    }, 10);
     spawnInterval = setInterval(spawn, 600);
     donutsSpawnInterval = setInterval(spawnDonut, 1505);
-    donutsMoveInterval =  setInterval(moveDonuts,10);
+    //donutsMoveInterval =  setInterval(moveDonuts,10);
     speedInterval = setInterval( () => speed++, 30000);
 }
 
@@ -113,7 +116,16 @@ function movePlanet(){
     }
 }
 
-let gameOverInterval = setInterval(movePlanet, 10);
+function cleatePauseCard(){
+    let div = document.createElement("div");
+    div.setAttribute('class','pause');
+    wrapper.appendChild(div);
+}
+
+let gameOverInterval = setInterval(() =>{
+    movePlanet(); 
+    moveDonuts();
+}, 10);
 
 let speedInterval = setInterval( () => speed++, 30000);
 
