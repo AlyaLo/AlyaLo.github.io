@@ -16,6 +16,22 @@
     text-align: right;
 }
 
+.pause{
+    background-image: url(pause.png); 
+    background-color: white;
+    border-radius: 100%;
+    opacity: 0.85;
+    position: absolute;
+    top: 42%;
+    left: 500px;
+    height: 128px;
+    width: 128px;
+}
+
+#pause{
+    position:absolute;
+    top: 500px;    
+}
 
 #rocket {
     position: absolute;
